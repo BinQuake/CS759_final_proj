@@ -174,7 +174,7 @@ int main(int argc, char *argv) {
 	fftw_complex tmp;
     
     int i, j;
-    data = float(**) malloc(sizeof(float*)*NMAX); // declare the whole array length
+    data = (float**) malloc(sizeof(float*)*NMAX); // declare the whole array length
     
     /*
      *
@@ -190,7 +190,7 @@ int main(int argc, char *argv) {
 
     df = 1/(dt*(new_npts - 1)); // frequency is the  total time divided by 1
 
-    in=(fftw_complex*)fftw_malloc(new_npts*ntrace*sizeof(fftw_complex));
+    in=(fftw_complex*)fftw_malloc(new_npts*num_trace*sizeof(fftw_complex));
 	out=(fftw_complex*)fftw_malloc(new_npts*sizeof(fftw_complex));
 	out2=(fftw_complex*)fftw_malloc(new_npts*sizeof(fftw_complex));
 	wght=(fftw_complex*)fftw_malloc(new_npts*sizeof(fftw_complex));
@@ -245,15 +245,15 @@ int main(int argc, char *argv) {
     // now after all stacking, add the weights
     for (j = 0; j < new_npts; j ++) {
         tmp[0]=sqrt(wght[j][0]*wght[j][0]+wght[j][1]*wght[j][1]);
-		out2[j][0]=out[j][0]/ntrace;
-		out2[j][1]=out[j][1]/ntrace;
-		out[j][0]=out[j][0]*tmp[0]*tmp[0]/ntrace;
-		out[j][1]=out[j][1]*tmp[0]*tmp[0]/ntrace;
+		out2[j][0]=out[j][0]/num_trace;
+		out2[j][1]=out[j][1]/num_trace;
+		out[j][0]=out[j][0]*tmp[0]*tmp[0]/num_trace;
+		out[j][1]=out[j][1]*tmp[0]*tmp[0]/num_trace;
     }
     
     // transform back to where it is
-    inv_gft_1dComplex64(out,new_npts,win,par,1);
-	inv_gft_1dComplex64(out2,new_npts,win,par,1);
+    inv_gft_1dComplex64(out,new_npts,win,indx,1);
+	inv_gft_1dComplex64(out2,new_npts,win,indx,1);
     
     for(i=0;i<npts;i++)
 	{
@@ -275,6 +275,6 @@ int main(int argc, char *argv) {
 	fftw_free(out);
 	fftw_free(wght);
 	free(win);
-	free(par);
+	free(indx);
 	free(data);
 }

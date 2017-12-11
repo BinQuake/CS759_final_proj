@@ -132,7 +132,7 @@ void inv_gft_1dComplex64(double *singal, unsigned int N, double *win, int *indx,
         end = indx[ct];
         
         // frequency band
-        band = singla + start*2*stride;
+        band = singal+ start*2*stride;
         
         // FFFT to transform to S-space
         fft(end-start, band, stride);
@@ -185,7 +185,7 @@ int main(int argc, char *argv) {
     // b is the begin time of each trace, not really useful here
     // dt is the sample rate should be all the same for all traces
     // npts should be all the same for all traces
-    read_trace_list(argv[1], data, &ntrace, &npts, &dt, &b);
+    read_trace_list(argv[1], data, &num_trace, &npts, &dt, &b);
     new_npts = power2(npts);
 
     df = 1/(dt*(new_npts - 1)); // frequency is the  total time divided by 1
@@ -276,5 +276,5 @@ int main(int argc, char *argv) {
 	fftw_free(wght);
 	free(win);
 	free(par);
-	free(dat);
+	free(data);
 }

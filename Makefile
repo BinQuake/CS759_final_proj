@@ -27,7 +27,7 @@ OPENFLAG := -fopenmp
 all : p1
 
 p1: pws_cpu.c
-	gcc -o p1 $(OPT) pws_cpu.c -ccbin $(BIN)
+	gcc -o p1 $(OPT) pws_cpu.c
 
 .PHONY: clean
 clean:

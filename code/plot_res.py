@@ -37,4 +37,7 @@ plt.ylabel("Amplitude")
 plt.legend()
 plt.title(event)
 plt.savefig(event+".pdf",dpi = 300)
+<<<<<<< HEAD
 
+=======
+>>>>>>> bd8cbe89f3de76c87946ba90adefc279c6311294

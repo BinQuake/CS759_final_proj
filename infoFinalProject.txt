@@ -1,0 +1,11 @@
+Your First Name: Bin
+Your Last Name: Guo
+The Last four digits of your UW-Madison student ID: 7626
+URL to Final Project GitHub repo (used for grading): https://github.com/BinQuake/CS759_final_proj
+Participate in Rescale competition for Surface tablet: No
+Name[s] of your Final Project teammates: None
+I took care of the course evaluation: Yes
+
+NOTE: It's ok for a team to only generate one Final Report. However, this same document should show up in the Final Project folder of each team member.
+
+P.S. I obviously can't check if you evaluated the course. But I thought I'd ask anyway and see how you spin it.

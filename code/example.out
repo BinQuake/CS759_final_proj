@@ -1,0 +1,3 @@
+time cost for setting up Gaussian matrix is :900.000000 ms
+time cost for GPU pws stack is:930.000000 ms
+time cost for GPU linear stack is:10.000000 ms
